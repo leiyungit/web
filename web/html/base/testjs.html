@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>testjs</title>
+	<script type="text/javascript">
+	for (var i = 100; i < 1000; i++) {
+        //分别获取当前这次循环数字个、十、百
+        var ge = i % 10,
+            shi = parseInt(i / 10) % 10;
+        bai = parseInt(i / 100);
+        //计算数字累加和
+        var result = Math.pow(ge, 3) + Math.pow(shi, 3) + Math.pow(bai, 3);
+        if (i == result) {
+            console.log(i + "水仙花数字")
+        }
+    }
+</script>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+</body>
+
+</html>
+<script>
+    //获取canvas标签
+    var canvas = document.querySelector("canvas");
+    //画布当中任何操作必须通过2D上下文进行操作
+    var ctx = canvas.getContext("2d");
+    //一定要注意：画布当中任何操作都是通过ctx属性、方法进行操作
+    //设置矩形填充颜色
+    ctx.fillStyle = "cyan";
+    //绘制矩形
+    ctx.fillRect(100, 100, 100, 100);
+
+    //绘制圆
+    //通过绘制路径形式绘制圆
+    ctx.beginPath();
+    //用户在描述绘制图形
+    ctx.arc(200, 200, 50, 0, Math.PI * 2, false);
+    //设置填充颜色
+    ctx.fillStyle = "red";
+    //开始填充
+    ctx.fill();
+    //边框设置
+    ctx.lineWidth = 20;
+    ctx.strokeStyle = "pink";
+
+    //开始绘制
+    ctx.stroke();
+</script>
